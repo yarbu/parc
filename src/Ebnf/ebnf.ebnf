@@ -1,0 +1,60 @@
+
+syntax
+  = space, rules ;
+
+rules
+  = { rule } ;
+
+rule
+  = bareword, space, "=", space, alt, ";", space ;
+
+alt
+  = conc, pipeconclist ;
+
+pipeconclist
+  = { pipeconc } ;
+
+pipeconc
+  = "|", space, conc ;
+
+conc
+  = term, commatermlist ;
+
+commatermlist
+  = { commaterm } ;
+
+commaterm
+  = ",", space, term ;
+
+term
+  = bareword | sq | dq | regex | group | repetition | optional ;
+
+bareword
+  = /^([a-z][a-z ]*[a-z]|[a-z])/, space ;
+
+sq
+  = /^'([^']*)'/, space ;
+
+dq
+  = /^"([^"]*)"/, space ;
+
+regex
+  = /^\/\^([^\/\\]*(\\\/|\\[^\/])?)*\//, space ;
+
+group
+  = "(", space, alt, ")", space ;
+
+repetition
+  = "{", space, alt, "}", space ;
+
+optional
+  = "[", space, alt, "]", space ;
+
+space
+  = { whitespace | comment } ;
+
+whitespace
+  = /^[ \t\r\n]+/ ;
+
+comment
+  = /^(\(\*\s+[^*]*\s+\*\)|\(\* \*\)|\(\*\*\))/ ;
