@@ -19,7 +19,7 @@ class ParserGenerator
      *
      * @param string $ebnf  the ebnf
      * @param string $s     the start symbol
-     * @param string $class the full qualified classname of the class o generate
+     * @param string $class the full qualified name of the class to generate
      *
      * @return string the generated code
      */
@@ -53,7 +53,7 @@ class ParserGenerator
     }
 
     /**
-     * Transforms and cleans the parse tree into an AST
+     * Cleans and transforms the parse tree into an AST
      *
      * @param Node $node the node
      *

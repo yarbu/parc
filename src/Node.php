@@ -65,4 +65,34 @@ class Node
     {
         return $this->result;
     }
+
+    public function state()
+    {
+        $state = array();
+
+        if ($this->parser->name()) {
+            $state['parser'] = $this->parser->name();
+        }
+
+        //$state['from'] = $this->from;
+        //$state['length'] = $this->length;
+
+        if (is_array($this->result)) {
+            $state['result'] = array();
+            foreach ($this->result as $node) {
+                $state['result'][] = $node->state();
+            }
+        } else if ($this->result instanceof Node) {
+            $state['result'] = $this->result->state();
+        } else {
+            $state['result'] = $this->result;
+        }
+
+        return $state;
+    }
+
+    public function __toString()
+    {
+        return (string)$this->state();
+    }
 }

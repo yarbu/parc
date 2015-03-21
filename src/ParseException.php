@@ -20,6 +20,7 @@ class ParseException extends \Exception
         $this->from = (int)$from;
 
         $message = sprintf('Parser %s failed at byte %d!', $this->parser->description(), $this->from);
+        $message = sprintf('Parser failed at byte %d!', $this->from);
         parent::__construct($message);
     }
 }
