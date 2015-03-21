@@ -93,6 +93,6 @@ class Node
 
     public function __toString()
     {
-        return (string)$this->state();
+        return json_encode($this->state());
     }
 }

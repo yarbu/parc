@@ -172,7 +172,7 @@ class GrammerParser extends CombiParser
     /** */
     protected function createDescription()
     {
-        return sprintf('new GrammerParser(%s, %s)', var_export($this->s, true), $this->internalsDescription());
+        return sprintf('GrammerParser(%s, %s)', var_export($this->s, true), $this->internalsDescription());
     }
 
     /** */

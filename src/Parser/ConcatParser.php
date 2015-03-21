@@ -24,7 +24,7 @@ class ConcatParser extends CombiParser
     /** */
     protected function createDescription()
     {
-        return sprintf('new ConcatParser(%s)', $this->internalsDescription());
+        return sprintf('ConcatParser(%s)', $this->internalsDescription());
     }
 
     /** */

@@ -78,7 +78,7 @@ class GreedyMultiParser extends CombiParser
     {
         $internal = $this->internals[0];
         $internalDescription = is_string($internal) ? var_export($internal, true) : $internal->description();
-        return sprintf('new GreedyMultiParser(%s, %d, %s)', $internalDescription, $this->lower, var_export($this->optional, true));
+        return sprintf('GreedyMultiParser(%s, %d, %s)', $internalDescription, $this->lower, var_export($this->optional, true));
     }
 
     /** */

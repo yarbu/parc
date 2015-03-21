@@ -15,7 +15,7 @@ class EmptyParser extends BaseParser
     /** */
     public function createDescription()
     {
-        return 'new EmptyParser()';
+        return 'EmptyParser()';
     }
 
     /** */

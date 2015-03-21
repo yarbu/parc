@@ -16,6 +16,9 @@ class RegexpParser extends BaseParser
     public function __construct($regexp)
     {
         $this->regexp = (string)$regexp;
+        if (@preg_match($this->regexp, '') === false){
+            throw new \Exception(sprintf('String %s seems not to be a regular expression!', $this->regexp));
+        }
         if (substr($this->regexp, 1, 1) !== '^') {
             throw new \Exception(sprintf('Regexp %s must anchor at the beginning of the string!', $this->regexp));
         }
@@ -35,7 +38,7 @@ class RegexpParser extends BaseParser
     /** */
     public function accept($string, $from)
     {
-        if (preg_match($this->regexp, substr($string, $from), $matches) !== 1) {
+        if (@preg_match($this->regexp, substr($string, $from), $matches) !== 1) {
             throw new ParseException($this, $from);
         }
 
@@ -45,7 +48,7 @@ class RegexpParser extends BaseParser
     /** */
     protected function createDescription()
     {
-        return sprintf('new RegexpParser(%s)', var_export($this->regexp, true));
+        return sprintf('RegexpParser(%s)', var_export($this->regexp, true));
     }
 
     /** */

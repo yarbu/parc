@@ -42,7 +42,7 @@ class StringParser extends BaseParser
     /** */
     protected function createDescription()
     {
-        return sprintf('new StringParser(%s)', var_export($this->needle, true));
+        return sprintf('StringParser(%s)', var_export($this->needle, true));
     }
 
     /** */

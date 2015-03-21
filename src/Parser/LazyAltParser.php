@@ -22,7 +22,7 @@ class LazyAltParser extends CombiParser
     /** */
     public function createDescription()
     {
-        return sprintf('new LazyAltParser(%s)', $this->internalsDescription());
+        return sprintf('LazyAltParser(%s)', $this->internalsDescription());
     }
 
     /** */

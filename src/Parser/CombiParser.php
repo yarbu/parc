@@ -39,7 +39,7 @@ abstract class CombiParser extends BaseParser
             }
             $chunks[] = $chunk;
         }
-        return sprintf('array(%s)', implode(', ', $chunks));
+        return sprintf('[%s]', implode(', ', $chunks));
     }
 
     /**
