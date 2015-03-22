@@ -12,7 +12,4 @@ matrix:
   fast_finish: true
 
 install:
-   - composer install --dev
-
-after_script:
-  - php vendor/bin/coveralls -v
+   - composer install
