@@ -18,8 +18,8 @@
     </testsuites>
 
     <filter>
-        <whitelist>
-            <directory suffix=".php">./lib/PhpParser/</directory>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src/</directory>
         </whitelist>
     </filter>
 </phpunit>

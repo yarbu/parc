@@ -13,6 +13,15 @@ class TestCase extends \PHPUnit_Framework_TestCase
         return $method->invokeArgs($object, $parameters);
     }
 
+    public function getProperty(&$object, $propertyName)
+    {
+        $reflection = new \ReflectionClass(get_class($object));
+        $property = $reflection->getProperty($propertyName);
+        $property->setAccessible(true);
+
+        return $property->getValue($object);
+    }
+
     public function setProperty(&$object, $propertyName, $value)
     {
         $reflection = new \ReflectionClass(get_class($object));
